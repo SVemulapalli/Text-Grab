@@ -98,18 +98,43 @@
                 </Button>
             </Grid>
             <Image x:Name="ImageSource" Grid.Row="1" />
-            <Canvas
-                x:Name="RectanglesCanvas"
-                Grid.Row="1"
+            <Grid 
+                x:Name="MainAreaGrid" 
                 Margin="-4,-2,0,0"
-                IsHitTestVisible="True"
-                MouseDown="RectanglesCanvas_MouseDown"
-                MouseMove="RectanglesCanvas_MouseMove"
-                MouseUp="RectanglesCanvas_MouseUp">
-                <Canvas.Background>
-                    <SolidColorBrush Opacity=".05" Color="White" />
-                </Canvas.Background>
-            </Canvas>
+                Grid.Row="1" >
+                <Canvas
+                    x:Name="RectanglesCanvas"
+                    IsHitTestVisible="True"
+                    MouseDown="RectanglesCanvas_MouseDown"
+                    MouseMove="RectanglesCanvas_MouseMove"
+                    MouseUp="RectanglesCanvas_MouseUp">
+                    <Canvas.Background>
+                        <SolidColorBrush Opacity=".05" Color="White" />
+                    </Canvas.Background>
+                </Canvas>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GridSplitter
+                        Width="5"
+                        HorizontalAlignment="Stretch"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Bottom"
+                        ShowsPreview="True" />
+                    <GridSplitter 
+                        Width="5" 
+                        Grid.RowSpan="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        ShowsPreview="True" />
+                </Grid>
+            </Grid>
             <Border Grid.Row="2" Background="{StaticResource DarkBackground}">
                 <Grid
                     Height="30"
